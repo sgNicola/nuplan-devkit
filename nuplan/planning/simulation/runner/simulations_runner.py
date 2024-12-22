@@ -111,7 +111,10 @@ class SimulationRunner(AbstractRunner):
 
             # Plan path based on all planner's inputs
             trajectory = self.planner.compute_trajectory(planner_input)
-
+            _, ood_scores = self.planner._planning(planner_input)
+            #TODO: change logger
+            logger.debug("Scenario name: %s" % self.simulation.scenario.scenario_name, "ood_scores:", ood_scores)
+            # TODO: Add a check to see the planner's output
             # Propagate simulation based on planner trajectory
             self._simulation.callback.on_planner_end(self.simulation.setup, self.planner, trajectory)
             self.simulation.propagate(trajectory)

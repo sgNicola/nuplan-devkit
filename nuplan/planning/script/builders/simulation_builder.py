@@ -122,7 +122,7 @@ def build_simulations(
                 ego_controller=ego_controller,
                 scenario=scenario,
             )
-
+            #   TODO: Add the callback to return the scenario type and scenario name.
             simulation = Simulation(
                 simulation_setup=simulation_setup,
                 callback=MultiCallback(callbacks + stateful_callbacks),

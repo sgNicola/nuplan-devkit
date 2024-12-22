@@ -44,6 +44,7 @@ def run_simulation(sim_runner: AbstractRunner, exit_on_failure: bool = False) ->
             raise RuntimeError('Simulation failed')
 
         end_time = time.perf_counter()
+        #   TODO: Add the ood_scores.
         report = RunnerReport(
             succeeded=False,
             error_message=error,
